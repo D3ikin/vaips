@@ -1,0 +1,12 @@
+# Конфиг для Render.com — подхватывается автоматически при создании сервиса
+services:
+  - type: web
+    name: vaips
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      # задайте пароль админки в панели Render (Environment → ADMIN_PASSWORD)
+      - key: ADMIN_PASSWORD
+        sync: false
