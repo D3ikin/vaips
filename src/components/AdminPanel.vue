@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, reactive, ref } from 'vue'
-import { store } from '../composables/useStore.js'
+import { assetUrl, store } from '../composables/useStore.js'
 
 // --- авторизация ---
 const token = ref(localStorage.getItem('admin-token') || '')
@@ -257,7 +257,7 @@ function removeWallet(i) {
         <section v-if="activeTab === 'flavors'" class="panel">
           <div v-for="(f, i) in draft.flavors" :key="f.id" class="flavor-card">
             <div class="flavor-preview" :style="{ background: `linear-gradient(135deg, ${f.colors[0]}33, ${f.colors[1]}22)` }">
-              <img v-if="f.image" :src="f.image" :alt="f.name" />
+              <img v-if="f.image" :src="assetUrl(f.image)" :alt="f.name" />
               <span v-else class="no-img">нет фото</span>
             </div>
             <div class="flavor-fields">

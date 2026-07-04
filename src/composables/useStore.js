@@ -26,6 +26,11 @@ export function loadStore() {
 
 const stripAt = (s) => (s || '').replace(/^@/, '')
 
+// Пути к картинкам вида '/products/…' работают и когда сайт лежит
+// в подпапке (GitHub Pages: /vaips/) — подставляем базовый путь сборки.
+export const assetUrl = (p) =>
+  p && p.startsWith('/') ? import.meta.env.BASE_URL.replace(/\/$/, '') + p : p
+
 export function useStore() {
   const tgChannelUrl = computed(() => `https://t.me/${stripAt(store.tgChannel)}`)
   const tgManagerUrl = computed(() => `https://t.me/${stripAt(store.tgManager)}`)

@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { useStore } from '../composables/useStore.js'
+import { assetUrl, useStore } from '../composables/useStore.js'
 import { useCart } from '../composables/useCart.js'
 
 const { store } = useStore()
@@ -26,7 +26,7 @@ function addToCart() {
       :style="{ background: `radial-gradient(circle at 50% 20%, ${flavor.colors[0]}33, transparent 70%), linear-gradient(160deg, ${flavor.colors[0]}22, ${flavor.colors[1]}18)` }"
     >
       <img
-        :src="flavor.image"
+        :src="assetUrl(flavor.image)"
         :alt="`${store.model.name} — ${flavor.name}`"
         loading="lazy"
         class="card-img"

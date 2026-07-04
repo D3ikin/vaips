@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { useStore } from '../composables/useStore.js'
+import { assetUrl, useStore } from '../composables/useStore.js'
 
 const { store, tgChannelUrl } = useStore()
 
@@ -38,7 +38,7 @@ const heroFlavors = computed(() => store.flavors.slice(0, 3))
         <img
           v-for="(f, i) in heroFlavors"
           :key="f.id"
-          :src="f.image"
+          :src="assetUrl(f.image)"
           :alt="f.name"
           class="vape-img"
           :class="`v${i + 1}`"

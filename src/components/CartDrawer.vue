@@ -1,6 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { useStore } from '../composables/useStore.js'
+import { assetUrl, useStore } from '../composables/useStore.js'
 import { useCart } from '../composables/useCart.js'
 import CryptoPayment from './CryptoPayment.vue'
 
@@ -67,7 +67,7 @@ async function checkout() {
                   class="item-thumb"
                   :style="{ background: `linear-gradient(135deg, ${item.flavor.colors[0]}33, ${item.flavor.colors[1]}22)` }"
                 >
-                  <img :src="item.flavor.image" :alt="item.flavor.name" class="item-img" />
+                  <img :src="assetUrl(item.flavor.image)" :alt="item.flavor.name" class="item-img" />
                 </div>
                 <div class="item-info">
                   <div class="item-name">{{ item.flavor.name }}</div>
